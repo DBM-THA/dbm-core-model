@@ -1,0 +1,20 @@
+{
+  "id": "B-REF",
+  "name": "Reference House",
+  "city": "Augsburg",
+  "year_built": 2026,
+  "storeys": [
+    {
+      "id": "S-REF-EG",
+      "name": "Ground floor",
+      "elevation_m": 0.0,
+      "spaces": []
+    },
+    {
+      "id": "S-REF-OG",
+      "name": "First floor",
+      "elevation_m": 3.0,
+      "spaces": []
+    }
+  ]
+}

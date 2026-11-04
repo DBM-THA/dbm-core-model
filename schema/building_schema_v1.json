@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DBM core building model – schema v1 (draft)",
+  "description": "Quantities as attributes, no geometry. Units are part of the field names.",
+  "type": "object",
+  "required": ["schema_version", "project", "materials", "buildups", "buildings"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "project": {
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" }
+      }
+    },
+    "materials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "density_kg_m3"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "name": { "type": "string", "minLength": 1 },
+          "density_kg_m3": { "type": "number", "exclusiveMinimum": 0 },
+          "lambda_w_mk": { "type": "number", "exclusiveMinimum": 0 },
+          "gwp_kgco2e_per_kg": { "type": "number" },
+          "price_eur_per_m3": { "type": "number", "minimum": 0 },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "buildups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "layers"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "name": { "type": "string", "minLength": 1 },
+          "layers": {
+            "description": "Order: outside to inside, top to bottom",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["material", "thickness_m"],
+              "additionalProperties": false,
+              "properties": {
+                "material": { "$ref": "#/$defs/id" },
+                "thickness_m": { "type": "number", "exclusiveMinimum": 0, "maximum": 2 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "buildings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "storeys"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "name": { "type": "string", "minLength": 1 },
+          "city": { "type": "string" },
+          "year_built": { "type": "integer", "minimum": 1800, "maximum": 2100 },
+          "storeys": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "name", "elevation_m", "spaces", "elements"],
+              "additionalProperties": false,
+              "properties": {
+                "id": { "$ref": "#/$defs/id" },
+                "name": { "type": "string", "minLength": 1 },
+                "elevation_m": { "type": "number" },
+                "spaces": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["id", "name", "net_area_m2"],
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": { "$ref": "#/$defs/id" },
+                      "name": { "type": "string", "minLength": 1 },
+                      "usage": { "type": "string" },
+                      "net_area_m2": { "type": "number", "exclusiveMinimum": 0 }
+                    }
+                  }
+                },
+                "elements": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["id", "type", "name", "buildup", "area_m2"],
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": { "$ref": "#/$defs/id" },
+                      "type": { "enum": ["wall", "slab", "roof", "window", "door"] },
+                      "name": { "type": "string", "minLength": 1 },
+                      "buildup": { "$ref": "#/$defs/id" },
+                      "area_m2": { "type": "number", "exclusiveMinimum": 0 },
+                      "length_m": { "type": "number", "exclusiveMinimum": 0 },
+                      "bounds": {
+                        "description": "IDs of the spaces this element bounds",
+                        "type": "array",
+                        "items": { "$ref": "#/$defs/id" },
+                        "uniqueItems": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9-]*$" }
+  }
+}
