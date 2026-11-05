@@ -1,0 +1,7 @@
+{
+  "id": "MAT-SANDLIME",
+  "name": "Sand-lime brick",
+  "density_kg_m3": 1800,
+  "lambda_w_mk": 0.99,
+  "source": "Bundesverband Kalksandsteinindustrie e.V., Kalksandstein Planungshandbuch 2025, Kapitel 12, Tafel 8, DIN 4108-4"
+}
