@@ -1,0 +1,7 @@
+{
+  "id": "MAT-SCREED",
+  "name": "Cement screed",
+  "density_kg_m3": 2000,
+  "lambda_w_mk": 1.4,
+  "source": "DIN 4108-4"
+}
