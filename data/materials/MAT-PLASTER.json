@@ -1,0 +1,7 @@
+{
+  "id": "MAT-PLASTER",
+  "name": "Gypsum plaster",
+  "density_kg_m3": 1200,
+  "lambda_w_mk": 0.51,
+  "source": "DIN 4108-4:2020-11, Tabelle 1 – Gipsputz ohne Zuschlag (ρ = 1200 kg/m³, λ = 0,51 W/(m·K))"
+}
