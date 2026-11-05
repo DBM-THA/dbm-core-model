@@ -1,0 +1,7 @@
+{
+  "id": "MAT-CONCRETE",
+  "name": "Reinforced concrete",
+  "density_kg_m3": 2400,
+  "lambda_w_mk": 2.3,
+  "source": "DIN EN 12524"
+}
