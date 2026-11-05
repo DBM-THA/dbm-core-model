@@ -1,0 +1,7 @@
+{
+  "id": "MAT-MINWOOL",
+  "name": "Mineral wool",
+  "density_kg_m3": 30,
+  "lambda_w_mk": 0.035,
+  "source": "DIN 4108-4 / ÖKOBAUDAT"
+}
