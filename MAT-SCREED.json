@@ -1,0 +1,7 @@
+{
+  "id": "MAT-SCREED",
+  "name": "Cement screed",
+  "density_kg_m3": <number>,
+  "lambda_w_mk": <number>,
+  "source": "<where your values come from>"
+}
