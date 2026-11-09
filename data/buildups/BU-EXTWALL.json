@@ -1,0 +1,9 @@
+{
+  "id": "BU-EXTWALL",
+  "name": "Exterior wall",
+  "layers": [
+    { "material": "MAT-MINWOOL", "thickness_m": 0.16 },
+    {"material": "MAT-SANDLIME", "thickness_m": 0.175},
+     {"material": "MAT-PLASTER", "thickness_m": 0.015}
+  ]
+}
