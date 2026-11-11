@@ -1,0 +1,9 @@
+{
+    "id": "BU-INTWALL",
+    "name": "Interior wall",
+    "layers": [
+      { "material": "MAT-PLASTER", "thickness_m": 0.015 },
+      { "material": "MAT-SANDLIME", "thickness_m": 0.115 },
+      { "material": "MAT-PLASTER", "thickness_m": 0.015 }
+    ]
+  }
