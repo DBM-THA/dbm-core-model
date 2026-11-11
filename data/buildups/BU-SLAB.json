@@ -1,0 +1,18 @@
+{
+  "id": "BU-SLAB",
+  "name": "Floor slab",
+  "layers": [
+    {
+      "material": "MAT-SCREED",
+      "thickness_m": 0.05
+    },
+    {
+      "material": "MAT-EPS",
+      "thickness_m": 0.04
+    },
+    {
+      "material": "MAT-CONCRETE",
+      "thickness_m": 0.2
+    }
+  ]
+}
