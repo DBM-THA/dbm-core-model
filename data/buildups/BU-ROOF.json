@@ -1,0 +1,8 @@
+{
+  "id": "BU-ROOF",
+  "name": "Flat roof",
+  "layers": [
+    { "material": "MAT-TIMBER", "thickness_m": 0.024 },
+    ...
+  ]
+}
